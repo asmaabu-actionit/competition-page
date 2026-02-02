@@ -1,0 +1,8 @@
+{"location":"main.js:submit","message":"submit_start","data":{"apiUrl":"https://script.google.com/macros/s/AKfycbyOwGozphXtTYN9RxqeT4eYp2z5BnVWjQgQ0Jinl65FyrlyDO_ce_0_F-Wu2zPJTWH-/exec","hasEmail":true},"timestamp":1770072087183,"sessionId":"debug-session","hypothesisId":"H2"}
+{"location":"main.js:catch","message":"catch","data":{"name":"TypeError","message":"Failed to fetch"},"timestamp":1770072087741,"sessionId":"debug-session","hypothesisId":"H1,H2,H3,H4,H5"}
+{"location":"main.js:submit","message":"submit_start","data":{"apiUrl":"https://script.google.com/macros/s/AKfycbyOwGozphXtTYN9RxqeT4eYp2z5BnVWjQgQ0Jinl65FyrlyDO_ce_0_F-Wu2zPJTWH-/exec","hasEmail":true},"timestamp":1770072199086,"sessionId":"debug-session","hypothesisId":"H2"}
+{"location":"main.js:after_fetch","message":"fetch_done","data":{"ok":true,"status":200,"contentType":"application/json; charset=utf-8"},"timestamp":1770072202718,"sessionId":"debug-session","hypothesisId":"H1,H4"}
+{"location":"main.js:after_json","message":"json_parsed","data":{},"timestamp":1770072202766,"sessionId":"debug-session","hypothesisId":"H3"}
+{"location":"main.js:submit","message":"submit_start","data":{"apiUrl":"https://script.google.com/macros/s/AKfycbyOwGozphXtTYN9RxqeT4eYp2z5BnVWjQgQ0Jinl65FyrlyDO_ce_0_F-Wu2zPJTWH-/exec","hasEmail":true},"timestamp":1770072239426,"sessionId":"debug-session","hypothesisId":"H2"}
+{"location":"main.js:after_fetch","message":"fetch_done","data":{"ok":true,"status":200,"contentType":"application/json; charset=utf-8"},"timestamp":1770072243025,"sessionId":"debug-session","hypothesisId":"H1,H4"}
+{"location":"main.js:after_json","message":"json_parsed","data":{},"timestamp":1770072243051,"sessionId":"debug-session","hypothesisId":"H3"}

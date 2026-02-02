@@ -20,14 +20,16 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Submitting...';
+    submitBtn.classList.remove('submit-success');
 
     messageDiv.classList.remove('show', 'success', 'error');
 
     try {
+        // Use text/plain to avoid CORS preflight (Apps Script doesn't respond to OPTIONS)
         const response = await fetch(API_URL, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'text/plain',
             },
             body: JSON.stringify({
                 action: 'signup',
@@ -41,6 +43,8 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         if (data.success) {
             messageDiv.textContent = data.message;
             messageDiv.classList.add('success', 'show');
+            submitBtn.classList.add('submit-success');
+            submitBtn.textContent = 'Entry recorded';
 
             const referralInfo = document.getElementById('referralInfo');
             const referralLink = document.getElementById('referralLink');
@@ -65,7 +69,9 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
         messageDiv.classList.add('error', 'show');
     } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Enter Competition';
+        if (!submitBtn.classList.contains('submit-success')) {
+            submitBtn.textContent = 'Enter Competition';
+        }
     }
 });
 
