@@ -5,6 +5,19 @@
  * A: Email | B: Total Entries | C: Referred By | D: Successful Referrals | E: Timestamp
  */
 
+function doGet(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var lastRow = sheet.getLastRow();
+    var totalSignups = lastRow > 0 ? lastRow - 1 : 0;
+    return ContentService.createTextOutput(JSON.stringify({ totalSignups: totalSignups }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({ totalSignups: 0 }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
 function doPost(e) {
   try {
     if (!e || !e.postData || !e.postData.contents) {
@@ -82,9 +95,10 @@ function handleSignup(email, referrerEmail) {
     timestampStr     // E (text)
   ]);
 
+  var totalSignups = sheet.getLastRow() - 1;
   return createResponse(true,
     referredBy ? 'Successfully registered! You and your referrer both received an entry.' : 'Successfully registered!',
-    { entries: entries }
+    { entries: entries, totalSignups: totalSignups }
   );
 }
 

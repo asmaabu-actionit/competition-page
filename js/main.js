@@ -10,6 +10,18 @@ if (referralEmail) {
     document.getElementById('referrer').value = decodeURIComponent(referralEmail);
 }
 
+function updateEntriesCounter(count) {
+    const el = document.getElementById('entriesCounter');
+    if (el) el.textContent = count === 1 ? '1 entry so far' : `${count} entries so far`;
+}
+
+// Load total entries count on page load
+fetch(API_URL).then(function (r) { return r.json(); }).then(function (data) {
+    if (typeof data.totalSignups === 'number') updateEntriesCounter(data.totalSignups);
+}).catch(function () {
+    document.getElementById('entriesCounter').textContent = '— entries so far';
+});
+
 document.getElementById('signupForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -48,6 +60,7 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
 
             document.getElementById('email').value = '';
             document.getElementById('referrer').value = '';
+            if (typeof data.totalSignups === 'number') updateEntriesCounter(data.totalSignups);
         } else {
             messageDiv.textContent = data.message || 'An error occurred. Please try again.';
             messageDiv.classList.add('error', 'show');
