@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition Sign Up</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Enter the Competition</h1>
+        <p class="subtitle">Sign up and get a chance to win! Refer friends for extra entries.</p>
+
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="email">Your Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="you@example.com"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="referrer">
+                    Referred by (email) <span class="optional">(optional)</span>
+                </label>
+                <input
+                    type="email"
+                    id="referrer"
+                    name="referrer"
+                    placeholder="friend@example.com"
+                >
+                <p class="help-text">If a friend referred you, enter their email here</p>
+            </div>
+
+            <button type="submit" id="submitBtn">Enter Competition</button>
+        </form>
+
+        <div id="message" class="message"></div>
+
+        <div id="referralInfo" class="referral-info">
+            <h3 style="margin-bottom: 10px; color: #333;">Your Referral Link</h3>
+            <p style="font-size: 14px; color: #666; margin-bottom: 10px;">Share this link to get extra entries!</p>
+            <div id="referralLink" class="referral-link"></div>
+            <button type="button" class="copy-btn" id="copyBtn">📋 Copy Link</button>
+            <div id="entriesCount" class="entries-count"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
