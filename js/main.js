@@ -46,19 +46,8 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
             submitBtn.classList.add('submit-success');
             submitBtn.textContent = 'Entry recorded';
 
-            const referralInfo = document.getElementById('referralInfo');
-            const referralLink = document.getElementById('referralLink');
-            const entriesCount = document.getElementById('entriesCount');
-
-            const fullReferralLink = `${window.location.origin}${window.location.pathname}?ref=${encodeURIComponent(email)}`;
-            referralLink.textContent = fullReferralLink;
-            entriesCount.textContent = `Your current entries: ${data.entries}`;
-            referralInfo.classList.add('show');
-
             document.getElementById('email').value = '';
             document.getElementById('referrer').value = '';
-
-            referralInfo.scrollIntoView({ behavior: 'smooth' });
         } else {
             messageDiv.textContent = data.message || 'An error occurred. Please try again.';
             messageDiv.classList.add('error', 'show');
@@ -73,16 +62,4 @@ document.getElementById('signupForm').addEventListener('submit', async (e) => {
             submitBtn.textContent = 'Enter Competition';
         }
     }
-});
-
-document.getElementById('copyBtn').addEventListener('click', () => {
-    const referralLink = document.getElementById('referralLink').textContent;
-    const copyBtn = document.getElementById('copyBtn');
-    navigator.clipboard.writeText(referralLink).then(() => {
-        const originalText = copyBtn.textContent;
-        copyBtn.textContent = '✓ Copied!';
-        setTimeout(() => {
-            copyBtn.textContent = originalText;
-        }, 2000);
-    });
 });
